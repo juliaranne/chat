@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "build": "./node_modules/.bin/babel src --out-dir build --copy-files",
     "start": "nodemon app"
   },
   "jest": {
