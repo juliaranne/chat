@@ -1,0 +1,30 @@
+{
+  "name": "babel-jest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon app"
+  },
+  "jest": {
+    "modulePathIgnorePatterns": ["/build/"],
+    "moduleFileExtensions": [ "js", "ejs" ]
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.1",
+    "socket.io": "^2.3.0",
+    "core-js": "^3.5.0",
+    "mock-socket": "^9.0.2"
+  }
+}
