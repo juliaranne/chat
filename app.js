@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
     socket.username = data.username
   })
 
-  // socket.on('new_message', (data) => {
-  //   io.sockets.emit('here_message', {message: data.message, username: socket.username});
-  // })
+  socket.on('new_message', (data) => {
+    io.sockets.emit('here_message', {message: data.message, username: socket.username});
+  })
 })

@@ -13,22 +13,22 @@ const updateUserName = (event) => {
   socket.emit('update_username', {username: username.value})
 }
 
-// const sendMessage = (event) => {
-//   event.preventDefault();
-//   socket.emit('new_message', {message: messageText.value})
-// }
+const sendMessage = (event) => {
+  event.preventDefault();
+  socket.emit('new_message', {message: messageText.value})
+}
 
-// message.addEventListener('submit', (event) => {
-//   sendMessage(event);
-// });
+message.addEventListener('submit', (event) => {
+  sendMessage(event);
+});
 
 send_username.addEventListener('submit', (event) => {
   updateUserName(event);
 });
 
-// socket.on('here_message', (data) => {
-//   chat.insertAdjacentHTML('beforeend', '<p class="message">' + data.username + ": " + data.message + "</p>");
-// });
+socket.on('here_message', (data) => {
+  chat.insertAdjacentHTML('beforeend', '<p class="message">' + data.username + ": " + data.message + "</p>");
+});
 
 export { updateUserName };
 
