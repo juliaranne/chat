@@ -1,4 +1,4 @@
-// import { SocketIO, Server } from 'mock-socket';
+import { SocketIO, Server } from 'mock-socket';
 // const io = require('socket.io');
 
 jest.mock('../chat');
@@ -12,7 +12,7 @@ jest.mock('../chat');
 
 beforeEach(() => {
   document.body.innerHTML =
-    '<form id="change_username"' +
+    '<form id="change_username">' +
     ' <input id="username" type="text" />' +
     ' <button id="send_username">Choose username</button>' +
     '</form>' +
@@ -23,15 +23,21 @@ beforeEach(() => {
     '</form>';
 });
 
-test('Username value is Annonymous', () => {
+test('Username value is Annonymous', done => {
   
   // const fakeURL = 'ws://localhost:8080';
   // const mockServer = new Server(fakeURL);
   // window.io = SocketIO;
   
-  require ('../chat');
+  const chatapp = require('../chat');
 
-  document.querySelector
+  const usernameButton = document.querySelector('#send_username');
+  usernameButton.click();
+
+  expect(chatapp.updateUserName).toBeCalled();
+  done();
+  
+
   // mockIo.emit('new_message', {message: 'Test message'});
   // expect('Test message').toBeInDocument();
 });
