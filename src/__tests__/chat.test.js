@@ -25,18 +25,27 @@ beforeEach(() => {
 
 test('Username value is Annonymous', done => {
   
-  // const fakeURL = 'ws://localhost:8080';
-  // const mockServer = new Server(fakeURL);
-  // window.io = SocketIO;
+  const fakeURL = 'ws://localhost:8080';
+  const mockServer = new Server(fakeURL);
+
+  window.io = SocketIO;
+
+  mockServer.on('connection', socket => {
+    socket.on('new_message', data => {
+      socket.emit('here_message', {message: 'Test message', username: 'Julia'});
+    });
+  });
   
   const chatapp = require('../chat');
 
-  const usernameButton = document.querySelector('#send_username');
-  usernameButton.click();
+  setTimeout(() => {
+    // t.is(app.messages.length, 1);
+    // t.is(app.messages[0], 'test message from mock server', 'we have subbed our websocket backend');
 
-  expect(chatapp.updateUserName).toBeCalled();
+    mockServer.stop(t.done);
+  }, 100);
+  expect('Julia').toBeInTheDocument();
   done();
-  
 
   // mockIo.emit('new_message', {message: 'Test message'});
   // expect('Test message').toBeInDocument();
