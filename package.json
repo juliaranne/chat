@@ -6,26 +6,33 @@
   "scripts": {
     "test": "jest",
     "build": "./node_modules/.bin/babel src --out-dir build --copy-files",
-    "start": "nodemon app"
+    "start": "nodemon --exec babel-node app"
   },
   "jest": {
-    "modulePathIgnorePatterns": ["/build/"],
-    "moduleFileExtensions": [ "js", "ejs" ]
+    "modulePathIgnorePatterns": [
+      "/build/"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "ejs"
+    ]
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.7.5",
     "@babel/core": "^7.7.5",
+    "@babel/node": "^7.7.7",
     "@babel/preset-env": "^7.7.6",
     "jest": "^24.9.0"
   },
   "dependencies": {
+    "core-js": "^3.5.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
+    "mock-socket": "^9.0.2",
     "nodemon": "^2.0.1",
     "socket.io": "^2.3.0",
-    "core-js": "^3.5.0",
-    "mock-socket": "^9.0.2"
+    "socket.io-client": "^2.3.0"
   }
 }

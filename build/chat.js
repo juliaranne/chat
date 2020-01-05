@@ -1,14 +1,13 @@
 "use strict";
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.updateUserName = void 0;
 
-var _socket = _interopRequireDefault(require("socket.io"));
+const io = require('socket.io-client');
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const socket = _socket.default.connect('http://localhost:3000');
-
+const socket = io.connect('http://localhost:3000');
 const message = document.getElementById('create_message');
 const messageText = document.getElementById('message');
 const username = document.getElementById('username');
