@@ -9,6 +9,7 @@ const send_username = document.getElementById('change_username');
 const chat = document.getElementById('chat');
 
 const updateUserName = (event) => {
+  console.log('called');
   event.preventDefault();
   socket.emit('update_username', {username: username.value})
 }
