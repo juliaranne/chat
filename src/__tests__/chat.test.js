@@ -4,7 +4,7 @@ import {
   wait,
   fireEvent,
 } from '@testing-library/dom';
-import mockio, {serverSocket, cleanUp } from './__mocks__/mockClientSocket.io';
+import { SocketIO, Server } from 'mock-socket';
 
 jest.mock('../chat');
 
@@ -44,7 +44,7 @@ test('Username value is Annonymous', async () => {
   const chatapp = require('../chat');
   const sendMessageButton = document.querySelector('#send_username');
   sendMessageButton.addEventListener('click', () => {
-    chatapp.updateUserName.mockImplementationOnce()
+    chatapp.updateUserName()
   }) 
 
   fireEvent.click(sendMessageButton);
