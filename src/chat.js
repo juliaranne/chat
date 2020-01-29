@@ -30,6 +30,6 @@ socket.on('here_message', (data) => {
   chat.insertAdjacentHTML('beforeend', '<p class="message">' + data.username + ": " + data.message + "</p>");
 });
 
-export { updateUserName };
+export { updateUserName, sendMessage };
 
 
